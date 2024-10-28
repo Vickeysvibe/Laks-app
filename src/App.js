@@ -9,10 +9,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/event" element={<RegisterEvent />} />
-        <Route path="/report" element={<ReportQuery />} />
+        <Route path="/home/events" element={<RegisterEvent />} />
+        <Route path="/home/report" element={<ReportQuery />} />
         <Route path="/announcements" element={<Announcements />} />
       </Routes>
     </Router>

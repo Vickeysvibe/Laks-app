@@ -3,11 +3,11 @@ import { Link, useLocation } from "react-router-dom";
 const BottomNavBar = () => {
   const { pathname } = useLocation();
   return (
-    <div className="fixed bottom-0 w-full bg-[#022213] py-4 h-[8vh] flex justify-around items-center">
+    <div className="fixed bottom-0 w-full bg-[#022213] py-4 min-h-[8vh] flex justify-around items-center">
       <Link
         to="/home"
         className={`text-white ${
-          pathname === "/home" ? "bg-[#157f3d] px-5 py-2 rounded-2xl" : {}
+          pathname.includes("/home") ? "bg-[#157f3d] px-5 py-2 rounded-2xl" : {}
         }`}
       >
         <div className="flex flex-col justify-center items-center">

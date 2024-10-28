@@ -1,7 +1,6 @@
-// CameraCapture.js
 import { useState, useRef } from "react";
 
-const CameraCapture = () => {
+const CameraCapture = ({ onCapture }) => {
   const [stream, setStream] = useState(null);
   const [capturedImage, setCapturedImage] = useState(null);
   const videoRef = useRef(null);
@@ -10,12 +9,12 @@ const CameraCapture = () => {
   const startCamera = async () => {
     try {
       const mediaStream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: "environment" }, // Use back camera if available
+        video: { facingMode: "environment" },
       });
       videoRef.current.srcObject = mediaStream;
       setStream(mediaStream);
     } catch (error) {
-      console.error("Error accessing camera: ", error);
+      console.error("Error accessing camera:", error);
     }
   };
 
@@ -28,6 +27,7 @@ const CameraCapture = () => {
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
     const imageData = canvas.toDataURL("image/png");
     setCapturedImage(imageData);
+    onCapture(imageData);
   };
 
   const stopCamera = () => {
@@ -48,19 +48,19 @@ const CameraCapture = () => {
           ></video>
           <button
             onClick={startCamera}
-            className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+            className="bg-green-500 text-white px-4 py-2 rounded-md"
           >
             Start Camera
           </button>
           <button
             onClick={captureImage}
-            className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+            className="bg-green-500 text-white px-4 py-2 rounded-md"
           >
             Capture Image
           </button>
           <button
             onClick={stopCamera}
-            className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+            className="bg-red-500 text-white px-4 py-2 rounded-md"
           >
             Stop Camera
           </button>
@@ -74,7 +74,7 @@ const CameraCapture = () => {
           />
           <button
             onClick={() => setCapturedImage(null)}
-            className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+            className="bg-green-500 text-white px-4 py-2 rounded-md"
           >
             Retake
           </button>

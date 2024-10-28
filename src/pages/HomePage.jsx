@@ -20,13 +20,13 @@ const HomePage = () => {
 
           <div className="mt-3 flex flex-col">
             <Link
-              to="/event"
+              to="/home/events"
               className="bg-[#157f3d] text-white py-4 my-4 rounded-3xl text-center text-xl hover:bg-green-500"
             >
               Register Event
             </Link>
             <Link
-              to="/event"
+              to="/home/report"
               className="bg-[#157f3d] text-white py-4 my-4 rounded-3xl text-center text-xl hover:bg-green-500"
             >
               Rport a query
