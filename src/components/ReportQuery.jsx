@@ -62,7 +62,7 @@ const ReportQuery = () => {
 
   return (
     <Layout>
-      <div className="h-full bg-[#fefae0] p-6 rounded-3xl">
+      <div className="h-auto pb-20 bg-[#fefae0] p-6 rounded-3xl">
         <h2 className="text-[30px] font-semibold text-green-600 mb-4">
           Report a Query
         </h2>
